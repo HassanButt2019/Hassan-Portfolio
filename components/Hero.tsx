@@ -2,10 +2,15 @@ import React from 'react';
 import { RESUME_DATA } from '../constants';
 import { SectionId } from '../types';
 import { ArrowRight, Download, Database, Smartphone, Server } from 'lucide-react';
+import { downloadFormattedCV } from '../utils/cvDownload';
 
 const Hero: React.FC = () => {
   const scrollToProjects = () => {
     document.getElementById(SectionId.PROJECTS)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleDownloadCV = () => {
+    downloadFormattedCV();
   };
 
   return (
@@ -52,7 +57,10 @@ const Hero: React.FC = () => {
               View Work
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="flex items-center px-8 py-4 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg font-semibold transition-all border border-slate-700">
+            <button 
+              onClick={handleDownloadCV}
+              className="flex items-center px-8 py-4 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg font-semibold transition-all border border-slate-700"
+            >
               Download CV
               <Download className="ml-2 w-5 h-5" />
             </button>

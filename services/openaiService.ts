@@ -4,14 +4,15 @@ import { SYSTEM_INSTRUCTION } from '../constants';
 let openai: OpenAI | null = null;
 
 export const initializeChat = async () => {
-  if (!process.env.API_KEY) {
-    console.warn("API_KEY not found in environment variables. Chat features will be disabled or mocked.");
+  console.log(process.env.OPENAI_API_KEY);
+  if (!process.env.OPENAI_API_KEY) {
+    console.warn("OPENAI_API_KEY not found in environment variables. Chat features will be disabled or mocked.");
     return null;
   }
 
   try {
     openai = new OpenAI({
-      apiKey: process.env.API_KEY,
+      apiKey: process.env.OPENAI_API_KEY,
       dangerouslyAllowBrowser: true // Note: In production, API calls should be made from backend
     });
     return openai;

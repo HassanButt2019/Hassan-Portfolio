@@ -12,9 +12,6 @@ const Projects: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Featured <span className="text-purple-400">Projects</span></h2>
             <p className="text-slate-400">A selection of independent applications and enterprise solutions.</p>
            </div>
-           <div className="hidden md:block">
-             <span className="text-slate-500 text-sm font-mono">Total Projects Displayed: {RESUME_DATA.projects.length}</span>
-           </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
